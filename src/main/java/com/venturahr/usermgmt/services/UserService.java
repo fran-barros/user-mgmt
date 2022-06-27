@@ -1,4 +1,4 @@
-package com.venturahr.usermgmt.application;
+package com.venturahr.usermgmt.services;
 
 import com.venturahr.usermgmt.domain.User;
 import com.venturahr.usermgmt.repository.UserRepository;

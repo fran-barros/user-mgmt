@@ -1,6 +1,6 @@
 package com.venturahr.usermgmt.interfaces.rest;
 
-import com.venturahr.usermgmt.application.UserService;
+import com.venturahr.usermgmt.services.UserService;
 import com.venturahr.usermgmt.domain.User;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -22,7 +22,7 @@ public class UserController {
     @PostMapping(
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<User> create(@RequestBody @Valid User User){
+    public ResponseEntity<User> create(@RequestBody @Valid User user){
         User userResponse = service.create(user);
         if(userResponse == null){
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
