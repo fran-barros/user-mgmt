@@ -1,6 +1,6 @@
-package com.venturahr.usermgmt.domain;
+package com.venturahr.usuariomgmt.domain;
 
-import com.venturahr.usermgmt.infraestructure.validation.BirthDate.BirthDate;
+import com.venturahr.usuariomgmt.infraestructure.validation.BirthDate.BirthDate;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -22,37 +22,43 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity @Table(name ="user")
-public class User implements Serializable {
-    @Id
-    @NotEmpty
-    private String cpf;
+@Entity @Table(name ="usuario")
+public class Usuario implements Serializable {
 
-    @NotEmpty
-    private String name;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
 
     @NotEmpty
     @Email
     private String email;
 
+    // dados pessoa jurídica
+    private String cnpj;
+    private String razaoSocial;
+    //
+
+    // dados pessoa física
+    private String cpf;
+    private String nome;
     @Valid
     @BirthDate
-    @NotEmpty
-    private String birthdate;
+    private String dataNascimento;
+    //
 
     @Valid
     @NotEmpty
-    @OneToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
     @JoinColumn(name = "cpf")
-    private List<Contact> contacts;
+    private List<Contato> contatos;
 
     @NotNull
-    @OneToOne(fetch = FetchType.EAGER ,cascade=CascadeType.ALL, orphanRemoval = true)
+    @OneToOne(fetch = FetchType.EAGER ,cascade=CascadeType.ALL)
     @JoinColumn(name = "address_id", referencedColumnName = "id")
-    private Address address;
+    private Endereco endereco;
 
 
-    public Specification<User> toSpec(){
+    public Specification<Usuario> toSpec(){
         return (root, query, criteriaBuilder) -> {
             List<Predicate> predicates = new ArrayList<>();
 

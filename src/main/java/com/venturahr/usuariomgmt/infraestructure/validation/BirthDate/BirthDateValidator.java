@@ -1,4 +1,4 @@
-package com.venturahr.usermgmt.infraestructure.validation.BirthDate;
+package com.venturahr.usuariomgmt.infraestructure.validation.BirthDate;
 
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;

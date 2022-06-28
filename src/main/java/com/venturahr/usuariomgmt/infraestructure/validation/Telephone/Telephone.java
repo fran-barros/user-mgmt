@@ -1,4 +1,4 @@
-package com.venturahr.usermgmt.infraestructure.validation.Telephone;
+package com.venturahr.usuariomgmt.infraestructure.validation.Telephone;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;

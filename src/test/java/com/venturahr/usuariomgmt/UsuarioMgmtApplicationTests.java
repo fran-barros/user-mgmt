@@ -1,10 +1,10 @@
-package com.digital.customermgmt;
+package com.venturahr.usuariomgmt;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class CustomerMgmtApplicationTests {
+class UsuarioMgmtApplicationTests {
 
     @Test
     void contextLoads() {

@@ -1,4 +1,4 @@
-package com.venturahr.usermgmt.domain;
+package com.venturahr.usuariomgmt.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,19 +13,19 @@ import java.io.Serializable;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity @Table(name ="address")
-public class Address implements Serializable {
+@Entity @Table(name ="endereco")
+public class Endereco implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
     @NotEmpty
-    private String addressDetail;
+    private String logradouro;
     @NotEmpty
-    private String city;
+    private String cidade;
     @NotEmpty
-    private String zipcode;
+    private String cep;
     @NotEmpty
-    private String country;
+    private String pais;
 }
